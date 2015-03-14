@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Article list{% endblock title %}
+
+{% block content %}
+
+<h1>Article list</h1>
+<br/>
+<div class="actions">
+<a class="btn btn-info" href="{% url "article-create" %}">Article create</a>
+<a class="btn btn-default" href="{% url "aboutus" %}">About us</a>
+<a class="btn btn-default" href="{% url "auth" %}">Auth</a>
+</div><br/>
+<div>
+    
+</div>
+<br/>
+
+
+{% for object in object_list %}
+<div class="col-sm-4 item grid-group-item">
+<div class="thumbnail">
+
+    <div class="">
+        <b>description</b>: {{object.description}}
+
+
+    </div>
+    <div class="">
+        <b>title</b>: {{object.title}}
+
+
+    </div>
+
+<div class="actions">
+
+
+</div>
+</div>
+</div>
+{% endfor %}
+
+
+<div class="widget-footer bordered">
+    {% include "paginator.html" %}
+</div>
+
+{% endblock content %}
